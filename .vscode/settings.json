@@ -1,0 +1,8 @@
+{
+    "duckdb.databases": [],
+    "duckdb.defaultDatabase": "log_analytics",
+    "duckdb.extensions.autoLoad": [
+        "sqlite",
+        "json"
+    ]
+}

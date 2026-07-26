@@ -1,0 +1,20 @@
+version: 2
+
+# Try using these source definitions instead!
+sources:
+  - name: raw
+    schema: "{{ target.schema }}_raw"
+    description: Game log data from users
+    tables:
+      - name: game_logs
+        description: Raw game event logs containing one record per user login or logout event.
+        config:
+          loaded_at_field: ingested_at
+          freshness:
+            warn_after: {count: 1, period: hour}
+            error_after: {count: 24, period: hour}
+
+      - name: locations
+        description: Reference data that maps IP address ranges to geographic locations.
+      - name: time_of_day_lu
+        description: Lookup table that maps each hour to its corresponding time of day.

@@ -1,0 +1,8 @@
+models:
+  - name: stg_logs
+    description: Logs user data with json parsing and cleaning
+    columns:
+      - name: ip_address
+        description: user's ip address
+        data_tests:
+          - not_null
