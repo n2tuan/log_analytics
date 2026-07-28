@@ -1,0 +1,9 @@
+snapshots:
+  - name: logs_snapshot
+    relation: ref('ephemeral_logs')
+    config:
+      schema: snapshots
+      unique_key: ['ip_address','datetime_iso8601']
+      strategy: timestamp
+      updated_at: ingested_at
+      dbt_valid_to_current: "CAST('9999-12-31' as DATE)"

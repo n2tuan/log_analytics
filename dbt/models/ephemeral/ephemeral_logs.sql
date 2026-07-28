@@ -1,15 +1,12 @@
-{{ config (
-    materialized = 'incremental'
-) }}
+{{config(
+    materialized = 'ephemeral'
+)}}
 
 with
 
 source as (
 
     select * from {{ source('raw','game_logs') }}
-    {% if is_incremental() %}
-    where ingested_at > (select max(ingested_at) from {{this}} )    
-    {% endif %}
 
 ),
 
@@ -22,7 +19,6 @@ parsed as (
         (RAW_LOG->>'datetime_iso8601')::TIMESTAMP as datetime_iso8601,
         ingested_at
     from source
-
 
 )
 

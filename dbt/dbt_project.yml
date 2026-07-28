@@ -4,6 +4,7 @@ profile: log_analytics
 
 seed-paths: ["seeds"]
 model-paths: ["models"]
+snapshot-paths: ["snapshots"]
 macro-paths: ["macros"]
 clean-targets:
   - "target"

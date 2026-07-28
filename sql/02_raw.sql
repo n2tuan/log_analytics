@@ -5,6 +5,6 @@ CREATE OR REPLACE TABLE log_raw.game_logs (
 ;
 INSERT INTO log_raw.game_logs (RAW_LOG, INGESTED_AT)
 SELECT * , current_timestamp
-FROM read_json_objects('data/logs/*.json')
+FROM read_json_objects('data/logs/logs_2/*.json')
 ;
 
