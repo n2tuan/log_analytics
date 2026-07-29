@@ -17,7 +17,7 @@ jobs:
 
       - name: Activate venv and run dbt
         run: |
-          source .venv/bin/activate
+          source dbt/.venv/bin/activate
           dbt --version
           dbt deps
           dbt build
