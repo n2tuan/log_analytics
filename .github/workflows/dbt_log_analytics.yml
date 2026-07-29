@@ -1,8 +1,9 @@
-name: dbt Build
+name: Local dbt Build
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   build:
@@ -12,12 +13,15 @@ jobs:
       run:
         shell: bash
 
-    steps:
-      - uses: actions/checkout@v4
+    env:
+      PROJECT_ROOT: /Users/tuannn/projects/log_analytics
+      DBT_DIR: /Users/tuannn/projects/log_analytics/dbt
 
-      - name: Activate venv and run dbt
+    steps:
+
+      - name: Run dbt
+        working-directory: ${{ env.DBT_DIR }}
         run: |
-          source dbt/.venv/bin/activate
-          dbt --version
+          source .venv/bin/activate
           dbt deps
           dbt build
