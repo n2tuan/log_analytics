@@ -2,20 +2,22 @@ name: dbt Build
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
- build:
-
+  build:
     runs-on: self-hosted
 
+    defaults:
+      run:
+        shell: bash
+
     steps:
-    
       - uses: actions/checkout@v4
 
-      - name: Show location
-        run: pwd
-
-      - name: Show files
-        run: ls -la
+      - name: Activate venv and run dbt
+        run: |
+          source .venv/bin/activate
+          dbt --version
+          dbt deps
+          dbt build
