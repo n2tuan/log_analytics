@@ -14,8 +14,8 @@ jobs:
         shell: bash
 
     env:
-      PROJECT_ROOT: /Users/tuannn/projects/log_analytics
-      DBT_DIR: /Users/tuannn/projects/log_analytics/dbt
+      PROJECT_ROOT: /Users/tuannn/Documents/dbt/log_analytics
+      DBT_DIR: /Users/tuannn/Documents/dbt/log_analytics/dbt
 
     steps:
 
