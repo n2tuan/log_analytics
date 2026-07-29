@@ -28,3 +28,6 @@ models:
     marts:
       +schema: mart
       +materialized: table
+data_tests: 
+  +database: log_analytics
+  +schema: testing

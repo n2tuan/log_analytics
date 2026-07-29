@@ -6,3 +6,8 @@ models:
         description: user's ip address
         data_tests:
           - not_null
+      - name: user_event
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['login', 'logouts']
