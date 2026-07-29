@@ -15,10 +15,10 @@ jobs:
 
     env:
       PROJECT_ROOT: /Users/tuannn/Documents/dbt/log_analytics
-      DBT_DIR: /Users/tuannn/Documents/dbt/log_analytics/dbt
+      DBT_DIR: ${{ env.PROJECT_ROOT }}/dbt
 
     steps:
-
+      
       - name: Run dbt
         working-directory: ${{ env.DBT_DIR }}
         run: |
